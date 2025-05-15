@@ -4,3 +4,6 @@
 [submodule "firmware-pueo-surf6"]
 	path = firmware-pueo-surf6
 	url = https://github.com/barawn/firmware-pueo-surf6
+[submodule "firmware-pueo-turf"]
+	path = firmware-pueo-turf
+	url = https://github.com/barawn/firmware-pueo-turf
