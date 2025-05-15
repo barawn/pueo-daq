@@ -10,3 +10,6 @@
 [submodule "software-pueo-turf"]
 	path = software-pueo-turf
 	url = https://github.com/barawn/software-pueo-turf
+[submodule "software-pueo-surf6"]
+	path = software-pueo-surf6
+	url = https://github.com/barawn/software-pueo-surf6
