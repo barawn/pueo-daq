@@ -1,0 +1,3 @@
+[submodule "firmware-pueo-turfio"]
+	path = firmware-pueo-turfio
+	url = https://github.com/barawn/firmware-pueo-turfio
