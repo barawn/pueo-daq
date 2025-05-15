@@ -7,3 +7,6 @@
 [submodule "firmware-pueo-turf"]
 	path = firmware-pueo-turf
 	url = https://github.com/barawn/firmware-pueo-turf
+[submodule "software-pueo-turf"]
+	path = software-pueo-turf
+	url = https://github.com/barawn/software-pueo-turf
