@@ -13,3 +13,6 @@
 [submodule "software-pueo-surf6"]
 	path = software-pueo-surf6
 	url = https://github.com/barawn/software-pueo-surf6
+[submodule "pueo-python"]
+	path = pueo-python
+	url = https://github.com/barawn/pueo-python
