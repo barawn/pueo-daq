@@ -44,7 +44,9 @@ for any TURFIO that's masked off, the data that's output there is just garbage -
   also trigger the SURF watchdogs if the SURFs are running.
 
 * caligns/daligns have IDELAYs expanded to 63 taps. You need to use
-  the R0.2+ ``pueo-python`` functions.
+  the R0.2+ ``pueo-python`` functions. Some of the parameters from
+  previous versions may adjust a little because the IDELAYs are now
+  fixed location.
 
 ## SURF
 
@@ -76,3 +78,13 @@ for any TURFIO that's masked off, the data that's output there is just garbage -
 * MTS is not implemented at the moment so the individual channels
   will not be in sync.
 
+* ``eStartState`` now returns both the current and end states.
+
+* If the SURF startup state machine cannot identify the SURF
+  firmware at boot, it will unlink current and reload
+  (reprogramming it).
+
+* SURF startup state machine now catches exceptions in eye
+  training, so you probably want to watch for STARTUP_FAILURE
+  (255) if the SURF never enables out training.
+  
