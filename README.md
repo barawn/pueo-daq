@@ -1,10 +1,10 @@
-# PUEO-DAQ R0.3
+# PUEO-DAQ R0.3.1
 
-* firmware-pueo-turf v0r5p3
+* firmware-pueo-turf v0r5p4
 * software-pueo-turf 0.4.0
 * firmware-pueo-surf6 v0r1p15
-* software-pueo-surf6 0.5.0
-* firmware-pueo-turfio v0r3p13
+* software-pueo-surf6 0.6.1
+* firmware-pueo-turfio v0r3p14
 
 # Features
 
@@ -20,6 +20,9 @@
   (bridge timeout). ``eCommandReset`` will toggle the system reset.
   The TURF also does this at reboot but for some reason sometimes this
   still doesn't work.
+
+* The complete trigger path from the SURF -> TURF should train correctly
+  after fixing CIN inversion.
 
 ### Triggers with R0.3
 
