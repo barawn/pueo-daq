@@ -1,10 +1,10 @@
-# PUEO-DAQ R0.3.1
+# PUEO-DAQ R0.3.3
 
 * firmware-pueo-turf v0r5p4
 * software-pueo-turf 0.4.0
 * firmware-pueo-surf6 v0r1p15
-* software-pueo-surf6 0.6.1
-* firmware-pueo-turfio v0r3p14
+* software-pueo-surf6 0.6.2
+* firmware-pueo-turfio v0r3p16
 
 # Features
 
@@ -27,7 +27,7 @@
 ### Triggers with R0.3
 
 1. turfManualStartup
-2. surfStartup --cout 1 --enable 1 (this SHOULD disable the data masks for the desired SURFs - script needs to be edited)
+2. surfStartup --manual --enable (this SHOULD disable the data masks for the desired SURFs - script needs to be edited)
 3. dev.trig.latency = 200 (not important right now but whatever - this is how long a trigger has to come in - this is probably waaay short)
 4. dev.event.reset() (whatever, just be safe)
 5. dev.event.mask = 0b0000 (this is a 4 bit mask to not wait on events from a given TURFIO)
@@ -36,9 +36,16 @@
 8. dev.trig.runcmd(dev.trig.RUNCMD_RESET)  ( starts everyone running )
 9. dev.trig.soft_trig()
 
+The 'enable' in surfStartup can be skipped if you go through the
+TURFIOs and set ``tio[i].dalign[j].enable=1`` for all of the SURFs you
+want enabled (on TURFIO#i in slot j obviously).
+
 if you don't do the surfStartup you'll still get data it'll just be all ramps from the TURFIOs
 ONE of the TURFIOs has to be unmasked in dev.event.mask because right now the TURF uses that to generate fake headers because I don't have a real turf header generator
 for any TURFIO that's masked off, the data that's output there is just garbage - it's literally random reads from the DDR memory so don't expect it to be zero
+
+It might be fussy, watch data coming in with ``dev.event.statistics()``.
+Reboot and try again as necessary, sigh.
 
 ## TURFIO
 
@@ -49,7 +56,12 @@ for any TURFIO that's masked off, the data that's output there is just garbage -
 * caligns/daligns have IDELAYs expanded to 63 taps. You need to use
   the R0.2+ ``pueo-python`` functions.
 
+* Data enable plumbed properly. The SURF in slot 0 has debugging
+  ILAs.
+
 ## SURF
+
+* Fixes fatal typo from R0.3.1 software.
 
 * The data is now no longer complete trash because by default it selects
   the data path, not the calibration path. The cal amp is also only on
