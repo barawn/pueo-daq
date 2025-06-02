@@ -1,6 +1,6 @@
-# PUEO-DAQ R0.3.3
+# PUEO-DAQ R0.3.4
 
-* firmware-pueo-turf v0r5p4
+* firmware-pueo-turf v0r5p5
 * software-pueo-turf 0.4.0
 * firmware-pueo-surf6 v0r1p15
 * software-pueo-surf6 0.6.2
@@ -23,6 +23,9 @@
 
 * The complete trigger path from the SURF -> TURF should train correctly
   after fixing CIN inversion.
+
+* Out statistics added in the event path, reported with the
+  ``event.statistics()`` call in ``PueoTURF``.
 
 ### Triggers with R0.3
 
