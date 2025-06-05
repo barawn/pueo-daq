@@ -1,10 +1,10 @@
-# PUEO-DAQ R0.3.3
+# PUEO-DAQ R0.4
 
-* firmware-pueo-turf v0r5p4
+* firmware-pueo-turf v0r5p7
 * software-pueo-turf 0.4.0
-* firmware-pueo-surf6 v0r1p15
-* software-pueo-surf6 0.6.2
-* firmware-pueo-turfio v0r3p16
+* firmware-pueo-surf6 v0r2p0
+* software-pueo-surf6 0.7.0
+* firmware-pueo-turfio v0r4p0
 
 # Features
 
@@ -23,6 +23,9 @@
 
 * The complete trigger path from the SURF -> TURF should train correctly
   after fixing CIN inversion.
+
+* Extended event parameters (``PX`` command) support added to add
+  fragment delays.
 
 ### Triggers with R0.3
 
@@ -59,9 +62,14 @@ Reboot and try again as necessary, sigh.
 * Data enable plumbed properly. The SURF in slot 0 has debugging
   ILAs.
 
+* ``eAurora`` command added for lane initialization debugging.
+  Aurora reset command added as a bit in ``eEnable``.
+
 ## SURF
 
-* Fixes fatal typo from R0.3.1 software.
+* Multi-Tile Synchronization now performed at startup end. By default
+  the SURFs will not perform this - you need to set their end state
+  to 19 or higher.
 
 * The data is now no longer complete trash because by default it selects
   the data path, not the calibration path. The cal amp is also only on
@@ -73,12 +81,11 @@ Reboot and try again as necessary, sigh.
    running. This can be done in a broadcast mode so every SURF can be
    updated simultaneously.
 
-* SURF state machines now advance farther - the current final state
-  is 15 (``WAIT_SYNC``). Error checking on this needs to be improved
-  at the moment - if the software restarts once the start state has
-  advanced, it will currently attempt to train on data without a training
-  pattern and simply spin in a restart cycle. Resetting the DAQ system
-  is best done just by rebooting the TURF at the moment.
+* SURF state machines now advance even farther - the current final state
+  is 254 (``STARTUP_COMPLETE``), however by default it only runs to 15
+  (``WAIT_SYNC``). The additional states (16/17/18) are MTS related
+  (``MTS_STARTUP``, ``RUN_MTS``, and ``MTS_SHUTDOWN``). ``MTS_SHUTDOWN``
+  turns off significant power resources (about 0.7 W).
 
 * SURF watchdog implemented. When the SURF has programmed its clocks
   (advanced past state ``WAIT_CLOCK``), if it detects the loss of
