@@ -95,6 +95,5 @@ Reboot and try again as necessary, sigh.
   when its watchdog is triggered - it can reload its firmware
   without rebooting, unlike the TURF.
 
-* MTS is not implemented at the moment so the individual channels
-  will not be in sync.
+
 
