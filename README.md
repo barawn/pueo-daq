@@ -110,9 +110,10 @@ Reboot and try again as necessary, sigh.
 
 # Current firmware/software on DAQ
 
-SURF Firmware   : 0.2.3
-SURF Software   : 0.7.1
-TURFIO Firmware : 0.4.1
-TURF Firmware   : 0.6.0
-TURF Software   : 0.4.0
+
+* SURF Firmware   : 0.2.3  
+* SURF Software   : 0.7.1  
+* TURFIO Firmware : 0.4.1  
+* TURF Firmware   : 0.6.0  
+* TURF Software   : 0.4.0  
 
