@@ -4,7 +4,7 @@
 * software-pueo-turf 0.5.3
 * firmware-pueo-surf6 v0r2p3
 * software-pueo-surf6 0.7.1
-* firmware-pueo-turfio v0r4p0
+* firmware-pueo-turfio v0r4p1
 
 # Features
 
