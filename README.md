@@ -1,14 +1,24 @@
-# PUEO-DAQ R0.4
+# PUEO-DAQ R0.5
 
-* firmware-pueo-turf v0r5p7
-* software-pueo-turf 0.4.0
-* firmware-pueo-surf6 v0r2p0
-* software-pueo-surf6 0.7.0
+* firmware-pueo-turf v0r6p10
+* software-pueo-turf 0.5.3
+* firmware-pueo-surf6 v0r2p3
+* software-pueo-surf6 0.7.1
 * firmware-pueo-turfio v0r4p0
 
 # Features
 
 ## TURF
+
+* Event format is now E1. Headers are now meaningful and events are driven
+  by the TURF, not a random TURFIO.
+
+* Time core added. UDP timeserver at port 37. rdate won't work however due
+  to it sending 0 bytes by default. Same general behavior.
+
+* pyturfGpsd created. TURF startup state machine now grabs the current GPS
+  time and updates it. This behavior can be changed by a pyturfHskd.ini
+  file.
 
 * INI files for all daemons can be placed in ``/media`` for persistent loading.
   These INI files are copied to ``/usr/local/share`` - if they are not found
@@ -27,7 +37,7 @@
 * Extended event parameters (``PX`` command) support added to add
   fragment delays.
 
-### Triggers with R0.3
+### Triggers with R0.5
 
 1. turfManualStartup
 2. surfStartup --manual --enable (this SHOULD disable the data masks for the desired SURFs - script needs to be edited)
@@ -43,9 +53,10 @@ The 'enable' in surfStartup can be skipped if you go through the
 TURFIOs and set ``tio[i].dalign[j].enable=1`` for all of the SURFs you
 want enabled (on TURFIO#i in slot j obviously).
 
-if you don't do the surfStartup you'll still get data it'll just be all ramps from the TURFIOs
-ONE of the TURFIOs has to be unmasked in dev.event.mask because right now the TURF uses that to generate fake headers because I don't have a real turf header generator
-for any TURFIO that's masked off, the data that's output there is just garbage - it's literally random reads from the DDR memory so don't expect it to be zero
+If you don't do the surfStartup you'll still get data it'll just be all ramps from the TURFIOs
+
+For any TURFIO that's masked off, the data that's output there is just garbage - it's literally
+random reads from the DDR memory so don't expect it to be zero
 
 It might be fussy, watch data coming in with ``dev.event.statistics()``.
 Reboot and try again as necessary, sigh.
