@@ -114,6 +114,6 @@ Reboot and try again as necessary, sigh.
 * SURF Firmware   : 0.2.3  
 * SURF Software   : 0.7.1  
 * TURFIO Firmware : 0.4.1  
-* TURF Firmware   : 0.6.0  
-* TURF Software   : 0.4.0  
+* TURF Firmware   : 0.6.11  
+* TURF Software   : 0.5.3 
 
