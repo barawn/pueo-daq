@@ -1,10 +1,10 @@
-# PUEO-DAQ R0.5
+# PUEO-DAQ R0.6
 
-* firmware-pueo-turf v0r6p10
-* software-pueo-turf 0.5.3
-* firmware-pueo-surf6 v0r2p3
-* software-pueo-surf6 0.7.1
-* firmware-pueo-turfio v0r4p1
+* firmware-pueo-turf v0r8p14
+* software-pueo-turf 0.5.5
+* firmware-pueo-surf6 v0r7p2
+* software-pueo-surf6 0.7.8
+* firmware-pueo-turfio v0r6p1
 
 # Features
 
